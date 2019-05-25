@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<template
+        format="5"
+        revision="5"
+        name="AMVP"
+        minApi="9"
+        minBuildApi="14"
+        description="MVP">
+
+    <category value="A"/>
+    <formfactor value="Mobile"/>
+
+    <parameter
+            id="moduleName"
+            name="功能名称"
+            type="string"
+            constraints="class|unique|nonempty"
+            default=""
+            help="创建一个功能"/>
+
+       <parameter
+        id="ankoUIType"
+        name="类型选择"
+        type="enum"
+        default="Activity" >
+        <option id="Item">item</option>
+        <option id="Context">context</option>
+        <option id="Activity">activity</option>
+    </parameter>
+
+    <parameter
+            id="packageName"
+            name="Package name"
+            type="string"
+            constraints="package"
+            default="com.mycompany.myapp" />
+
+    <!-- 128x128 thumbnails relative to template.xml -->
+    <thumbs>
+        <!-- default thumbnail is required -->
+        <thumb>template_blank_activity.png</thumb>
+    </thumbs>
+
+    <globals file="globals.xml.ftl"/>
+    <execute file="recipe.xml.ftl"/>
+
+</template>

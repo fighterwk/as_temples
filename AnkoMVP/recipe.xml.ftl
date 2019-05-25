@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<recipe>
+
+		<#if ankoUIType == "Activity">
+			<instantiate from="root/src/app_package/SimpleActivity.kt.ftl"
+                   to="${escapeXmlAttribute(srcOut)}/activity/${moduleName}Activity.kt" />
+
+			<merge from="root/AndroidManifest.xml.ftl"
+           to="${escapeXmlAttribute(manifestOut)}/AndroidManifest.xml" />
+		   <open file="${escapeXmlAttribute(srcOut)}/activity/${moduleName}Activity.kt" />
+		</#if>
+
+
+    <instantiate from="root/src/app_package/AnkoUI${ankoUIType}.kt.ftl"
+                   to="${escapeXmlAttribute(srcOut)}/anko/${moduleName}UI.kt" />
+      <instantiate from="root/src/app_package/Contract.kt.ftl"
+                       to="${escapeXmlAttribute(srcOut)}/contract/${moduleName}Contract.kt" />
+      <instantiate from="root/src/app_package/PresenterImpl.kt.ftl"
+                       to="${escapeXmlAttribute(srcOut)}/presenter/${moduleName}Presenter.kt" />
+
+    <open file="${escapeXmlAttribute(srcOut)}/anko/${moduleName}UI.kt" />
+    <open file="${escapeXmlAttribute(srcOut)}/contract/${moduleName}Contract.kt" />
+    <open file="${escapeXmlAttribute(srcOut)}/presenter/${moduleName}Presenter.kt" />
+</recipe>
